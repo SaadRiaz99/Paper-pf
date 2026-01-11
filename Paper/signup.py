@@ -1,4 +1,5 @@
-Data = []
+Data = [
+]
 
 def Signup():
     email = input("Enter your email: ")
