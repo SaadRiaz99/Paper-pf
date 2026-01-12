@@ -1,18 +1,21 @@
-Data = [
-]
+Data = []
 
 def Signup():
     email = input("Enter your email: ")
     password = input("Enter your password: ")
     confirm_password = input("Confirm your password: ")
 
+    # check email already exists
+    for user_email, _ in Data:
+        if email == user_email:
+            print("Error: Email already registered.")
+            return
+
     if password != confirm_password:
         print("Error: Passwords do not match.")
-        return False
     else:
         Data.append((email, password))
         print(f"Signup successful for {email}!")
-        return True
 
 def login():
     email = input("Enter your email: ")
@@ -25,14 +28,14 @@ def login():
 
     print("Error: Invalid email or password.")
 
+print("1 for Signup")
+print("2 for Login")
 
-print(" 1 for Signup \n 2 for Login")
 choice = int(input("Enter your choice: "))
-if choice == 1:
 
+if choice == 1:
     Signup()
 elif choice == 2:
-
     login()
 else:
-    print("Invalid choice.")    
+    print("Invalid choice.")
